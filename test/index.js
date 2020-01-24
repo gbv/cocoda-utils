@@ -1,13 +1,16 @@
 const assert = require("assert")
+const CocodaUtils = require("../")
 
 describe("Basic Mocha String Test", () => {
 
-  it("should return number of charachters in a string", () => {
-    assert.equal("Hello".length, 5)
+  it("should initialize a CocodaUtils instance without options", () => {
+    const utils = new CocodaUtils()
+    assert.equal(utils instanceof CocodaUtils, true, "initialized object is not instance of CocodaUtils")
   })
 
-  it("should return first charachter of the string", () => {
-    assert.equal("Hello".charAt(0), "H")
+  it("should have a default values for options", () => {
+    const utils = new CocodaUtils()
+    assert(Array.isArray(utils.getOption("languages")), "default value for 'languages' is not an array")
   })
 
 })
