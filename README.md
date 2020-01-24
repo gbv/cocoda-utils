@@ -16,7 +16,9 @@
 
 ## Install
 
-TODO
+```bash
+npm i gbv/cocoda-utils
+```
 
 ## Usage
 
