@@ -15,7 +15,8 @@
     ]
   },
   "pre-commit": [
-    "lint-staged"
+    "lint-staged",
+    "test"
   ],
   "repository": {
     "type": "git",
