@@ -13,4 +13,12 @@ describe("Basic Mocha String Test", () => {
     assert(Array.isArray(utils.getOption("languages")), "default value for 'languages' is not an array")
   })
 
+  it("should be able to set an option", () => {
+    const utils = new CocodaUtils()
+    const option = "languages"
+    const newValue = ["de", "en", "fr"]
+    utils.setOption(option, newValue)
+    assert.deepEqual(newValue, utils.getOption(option), "value for option was net set properly")
+  })
+
 })
