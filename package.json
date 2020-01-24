@@ -1,7 +1,7 @@
 {
-  "name": "your-project-name",
+  "name": "cocoda-utils",
   "version": "0.0.1",
-  "description": "Your project's description",
+  "description": "Utilities package for Cocoda",
   "main": "index.js",
   "scripts": {
     "test": "mocha",
