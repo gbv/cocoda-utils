@@ -37,7 +37,7 @@
     "pre-commit": "^1.2.2"
   },
   "dependencies": {
-    "jskos-tools": "^1.0.2",
+    "jskos-tools": "^1.0.6",
     "lodash": "^4.17.15"
   }
 }
