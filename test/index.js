@@ -8,15 +8,9 @@ describe("Initialization", () => {
     assert.equal(utils instanceof CocodaUtils, true, "initialized object is not instance of CocodaUtils")
   })
 
-  it("should have a default values for options", () => {
-    const utils = new CocodaUtils()
-    assert(typeof utils.getOption("delay") === "object", "default value for 'delay' is not an object")
-    assert(typeof utils.getOption("licenseBadges") === "object", "default value for 'licenseBadges' is not an object")
-  })
-
   it("should be able to set an option", () => {
     const utils = new CocodaUtils()
-    const option = "delay"
+    const option = "state"
     const newValue = { test: 1 }
     utils.setOption(option, newValue)
     assert.deepEqual(newValue, utils.getOption(option), "value for option was net set properly")
