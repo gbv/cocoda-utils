@@ -131,7 +131,6 @@ describe("annotationsHelper", () => {
 
 /**
  * TODO:
- * - canConceptBeSelected
  * - generateID
  * - hash
  * - notation
@@ -139,9 +138,7 @@ describe("annotationsHelper", () => {
  * - languageMapContent
  * - prefLabel
  * - definition
- * - addEndpoint
  * - dateToString
- * - annotations (helpers)
  * - registryStored
- * - userOwnsMapping
+ * - reactivity via store or languages array
  */
