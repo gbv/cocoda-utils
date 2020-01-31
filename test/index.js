@@ -136,7 +136,7 @@ describe("annotationsHelper", () => {
  * - hash
  * - notation
  * - getLanguage
- * - lmContent
+ * - languageMapContent
  * - prefLabel
  * - definition
  * - addEndpoint

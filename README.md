@@ -105,7 +105,7 @@ const notation3 = utils.notation(item3, null, true) // e.g. "1<span class='notat
 
 #### getLanguage
 
-Returns a valid language tag in a JSKOS language-map. Mostly used by `lmContent`, but can be used by itself.
+Returns a valid language tag in a JSKOS language-map. Mostly used by `languageMapContent`, but can be used by itself.
 
 ```js
 const language = utils.getLanguage(someLanguageMap, preferredLanguage, options)
@@ -114,12 +114,12 @@ const language = utils.getLanguage(someLanguageMap, preferredLanguage, options)
 // options: an options object, currently supports `languages` to override the priority order for languages used
 ```
 
-#### lmContent
+#### languageMapContent
 
 Returns the content of a language-map property of a JSKOS item, using the `languages` priority list. Mostly used by `prefLabel` and `definition`, but can be used by itself for other language maps.
 
 ```js
-const content = utils.lmContent(item, prop, options)
+const content = utils.languageMapContent(item, prop, options)
 // item: a JSKOS item
 // property: a property in the JSKOS item the refers to a language map
 // options: an options object that 1. is forwarded to `getLanguage`, and 2. supports the `language` property for a preferred language
@@ -132,7 +132,7 @@ Returns the prefLabel of a JSKOS item according to the language priority list.
 ```js
 const prefLabel = utils.prefLabel(item, options)
 // item: a JSKOS item
-// options: supports all options of `lmContent`, additionally supports the option `fallbackToUri` (default: `true`)
+// options: supports all options of `languageMapContent`, additionally supports the option `fallbackToUri` (default: `true`)
 ```
 
 #### definition
@@ -142,7 +142,7 @@ Returns the definition of a JSKOS item according to the language priority list. 
 ```js
 const prefLabel = utils.definition(item, options)
 // item:  JSKOS item
-// options: supports all options of `lmContent`
+// options: supports all options of `languageMapContent`
 ```
 
 #### dateToString
