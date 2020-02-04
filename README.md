@@ -75,7 +75,7 @@ const languages = utils.getOption("languages")
 
 #### generateID
 
-Generates a random ID (length between 19 and 22 characters).
+Generates a random ID (length between 18 and 25 characters).
 
 ```js
 const id = utils.generateID() // e.g. "r9fh5pru3x866bihfhy14r"
