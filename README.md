@@ -32,20 +32,19 @@ npm i gbv/cocoda-utils#abc1def
 
 ## Usage
 
-### Instantiation
+### Import
 
-`cocoda-utils` exports a class, so you need to create an instance of it:
+`cocoda-utils` exports a singleton, that means that the same object is used anywhere in a project where `cocoda-utils` is imported.
 
 ```js
-const CocodaUtils = require("cocoda-utils")
-const utils = new CocodaUtils()
+const utils = require("cocoda-utils")
 ```
 
 Before going further, it is necessary to explain that some of the methods in `cocoda-utils` are language-dependent, which means that if your application supports more than one interface language and the user can possibly switch between these languages, it is necessary to provide a reference either to a reactive `languages` array or to a Vuex store and a path where in the store the `languages` array is.
 
 The `languages` array is just an array of language tags that can occur in [JSKOS language maps](https://gbv.github.io/jskos/jskos.html#language-map), e.g. `["de","en","fr"]`. These languages are used in order of priority.
 
-The constructor takes an options object with the following possible properties:
+With [`setOption`](#setoption), the following possible options can be set:
 - `store`: reference to a Vuex store where the `language` array resides in (requires `storePath` to work)
 - `storePath`: the path in the `store` where the `language` array is (e.g. `"state.langauges"`)
 - `languages`: direct reference to an array of languages (see above)
@@ -60,7 +59,7 @@ Note: In theory, `store` doesn't HAVE to be a Vuex store. It could be any kind o
 
 #### setOption
 
-Sets one of the constructor options after instantiation.
+Sets one of the options (see [Import](#import)).
 
 ```js
 utils.setOption("languages", ["de", "en", "fr"])
@@ -68,7 +67,7 @@ utils.setOption("languages", ["de", "en", "fr"])
 
 #### getOption
 
-Returns the value of one of the options in the constructor.
+Returns the value of one of the options (see [Import](#import)).
 
 ```js
 const languages = utils.getOption("languages")

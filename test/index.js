@@ -1,15 +1,13 @@
 const assert = require("assert")
-const CocodaUtils = require("../")
+const utils = require("../")
 
 describe("Initialization", () => {
 
-  it("should initialize a CocodaUtils instance without options", () => {
-    const utils = new CocodaUtils()
-    assert.equal(utils instanceof CocodaUtils, true, "initialized object is not instance of CocodaUtils")
+  it("should have default options", () => {
+    assert.deepEqual(utils.getOption("languages"), ["en"], "Default for option `languages` not set properly.")
   })
 
   it("should be able to set an option", () => {
-    const utils = new CocodaUtils()
     const option = "state"
     const newValue = { test: 1 }
     utils.setOption(option, newValue)
@@ -21,7 +19,6 @@ describe("Initialization", () => {
 describe("annotationsHelper", () => {
 
   it("should return the correct annotation creator URI", () => {
-    const utils = new CocodaUtils()
     const tests = [
       {
         annotation: {},
@@ -50,7 +47,6 @@ describe("annotationsHelper", () => {
   })
 
   it("should return the correct annotation creator name", () => {
-    const utils = new CocodaUtils()
     const tests = [
       {
         annotation: {},
@@ -79,7 +75,6 @@ describe("annotationsHelper", () => {
   })
 
   it("should correctly match annotation creator URI", () => {
-    const utils = new CocodaUtils()
     const tests = [
       {
         annotation: {},
