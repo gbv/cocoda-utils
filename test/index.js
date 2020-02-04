@@ -124,6 +124,26 @@ describe("annotationsHelper", () => {
 
 })
 
+describe("prefLabel", () => {
+
+  const test = {
+    prefLabel: {
+      en: "English label",
+      de: "German label",
+    },
+  }
+
+  it("should return the English label by default", () => {
+    assert.equal(utils.prefLabel(test), test.prefLabel.en, "Did not return the expected English label")
+  })
+
+  it("should return the German label after setting option", () => {
+    utils.setOption("languages", ["de"])
+    assert.equal(utils.prefLabel(test), test.prefLabel.de, "Did not return the expected German label")
+  })
+
+})
+
 /**
  * TODO:
  * - generateID
