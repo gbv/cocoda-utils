@@ -36,8 +36,5 @@
     "mocha-eslint": "^6.0.0",
     "pre-commit": "^1.2.2"
   },
-  "dependencies": {
-    "jskos-tools": "^1.0.6",
-    "lodash": "^4.17.15"
-  }
+  "dependencies": {}
 }
