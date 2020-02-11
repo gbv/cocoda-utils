@@ -1,21 +1,6 @@
 const assert = require("assert")
 const utils = require("../")
 
-describe("Initialization", () => {
-
-  it("should have default options", () => {
-    assert.deepEqual(utils.getOption("languages"), ["en"], "Default for option `languages` not set properly.")
-  })
-
-  it("should be able to set an option", () => {
-    const option = "state"
-    const newValue = { test: 1 }
-    utils.setOption(option, newValue)
-    assert.deepEqual(newValue, utils.getOption(option), "value for option was net set properly")
-  })
-
-})
-
 describe("annotationsHelper", () => {
 
   it("should return the correct annotation creator URI", () => {
@@ -154,73 +139,69 @@ describe("hash", () => {
 
 })
 
-describe("notation", () => {
+// describe("notation", () => {
 
-  it("should return the first notation of an item", () => {
-    let test = {
-      notation: ["1", "2"],
-    }
-    let notation = utils.notation(test)
-    assert.equal(notation, test.notation[0], `Did not return the first notation (expected: ${test.notation[0]}, actual: ${notation})`)
-  })
+//   it("should return the first notation of an item", () => {
+//     let test = {
+//       notation: ["1", "2"],
+//     }
+//     let notation = utils.notation(test)
+//     assert.equal(notation, test.notation[0], `Did not return the first notation (expected: ${test.notation[0]}, actual: ${notation})`)
+//   })
 
-  it("should uppercase the notation for a concept scheme", () => {
-    let test1 = {
-      notation: ["test"],
-    }
-    let notation1 = utils.notation(test1, "scheme")
-    assert.equal(notation1, test1.notation[0].toUpperCase(), `Notation for scheme should be uppercased: ${notation1}`)
+//   it("should uppercase the notation for a concept scheme", () => {
+//     let test1 = {
+//       notation: ["test"],
+//     }
+//     let notation1 = utils.notation(test1, "scheme")
+//     assert.equal(notation1, test1.notation[0].toUpperCase(), `Notation for scheme should be uppercased: ${notation1}`)
 
-    let test2 = {
-      notation: ["test"],
-      type: ["http://www.w3.org/2004/02/skos/core#ConceptScheme"],
-    }
-    let notation2 = utils.notation(test2)
-    assert.equal(notation2, test2.notation[0].toUpperCase(), `Notation for scheme should be uppercased: ${notation2}`)
-  })
+//     let test2 = {
+//       notation: ["test"],
+//       type: ["http://www.w3.org/2004/02/skos/core#ConceptScheme"],
+//     }
+//     let notation2 = utils.notation(test2)
+//     assert.equal(notation2, test2.notation[0].toUpperCase(), `Notation for scheme should be uppercased: ${notation2}`)
+//   })
 
-})
+// })
 
-describe("prefLabel", () => {
+// describe("prefLabel", () => {
 
-  const test = {
-    prefLabel: {
-      en: "English label",
-      de: "German label",
-    },
-  }
+//   const test = {
+//     prefLabel: {
+//       en: "English label",
+//       de: "German label",
+//     },
+//   }
 
-  it("should return the English label by default", () => {
-    assert.equal(utils.prefLabel(test), test.prefLabel.en, "Did not return the expected English label")
-  })
+//   it("should return the English label by default", () => {
+//     assert.equal(utils.prefLabel(test), test.prefLabel.en, "Did not return the expected English label")
+//   })
 
-  it("should return the German label when providing a preferred language", () => {
-    assert.equal(utils.prefLabel(test, { language: "de" }), test.prefLabel.de, "Did not return the expected German label")
-  })
+//   it("should return the German label when providing a preferred language", () => {
+//     assert.equal(utils.prefLabel(test, { language: "de" }), test.prefLabel.de, "Did not return the expected German label")
+//   })
 
-  it("should return the German label after setting option", () => {
-    utils.setOption("languages", ["de"])
-    assert.equal(utils.prefLabel(test), test.prefLabel.de, "Did not return the expected German label")
-    // Reset option after test
-    utils.setOption("languages", ["en"])
-  })
+//   it("should return the German label after setting option", () => {
+//     utils.setOption("languages", ["de"])
+//     assert.equal(utils.prefLabel(test), test.prefLabel.de, "Did not return the expected German label")
+//     // Reset option after test
+//     utils.setOption("languages", ["en"])
+//   })
 
-  it("should correctly handle fallbackToUri option", () => {
-    // Item without prefLabel
-    const test = {
-      uri: "test:hello",
-    }
-    assert.equal(utils.prefLabel(test), test.uri, "Did not fall back to URI as expected")
-    assert.equal(utils.prefLabel(test, { fallbackToUri: false }), "", "Did not respect fallbackToUri option")
-  })
+//   it("should correctly handle fallbackToUri option", () => {
+//     // Item without prefLabel
+//     const test = {
+//       uri: "test:hello",
+//     }
+//     assert.equal(utils.prefLabel(test), test.uri, "Did not fall back to URI as expected")
+//     assert.equal(utils.prefLabel(test, { fallbackToUri: false }), "", "Did not respect fallbackToUri option")
+//   })
 
-})
+// })
 
 /**
  * TODO:
- * - getLanguage
- * - languageMapContent
- * - definition
  * - dateToString
- * - registryStored
  */
